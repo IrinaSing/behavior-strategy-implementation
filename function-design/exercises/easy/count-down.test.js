@@ -93,10 +93,10 @@ for (const solution of [
       expect(solution(4)).toEqual([4, 3, 2, 1, 0]);
     });
     it("should not accept Infinity", () => {
-      expect(solution(Infinity)).toThrowError(new Error("start is not an integer"));
+      expect(solution(Infinity)).toThrowError("start is not an integer");
     });
     it("should not accept the parameter which is not a number", () => {
-      expect(solution("strings")).toThrowError(new TypeError("start is not a number"));
+      expect(solution("strings")).toThrow("start is not a number");
     });
     it("should not accept the negative number", () => {
       expect(solution(-4)).toThrowError(new RangeError("start is less than 0"));

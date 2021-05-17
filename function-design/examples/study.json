@@ -3,3 +3,9 @@
     "save": false
   }
 }
+
+{
+  "scripts": {
+    "test": "jest"
+  }
+}

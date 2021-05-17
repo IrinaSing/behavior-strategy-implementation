@@ -5,7 +5,9 @@
  * @param {string} [toReverse=''] - the string to reverse
  * @returns {string} the reversed argument
  */
-const stub = () => {};
+const stub = (toReverse='') => {
+  return '';
+};
 
 /*
   your strategy goes here
@@ -25,6 +27,18 @@ for (const solution of [
     });
     it('all capital letters', () => {
       expect(solution('ASDF')).toEqual('FDSA');
+    });
+    it('small letters', () => {
+      expect(solution('asdf')).toEqual('fdsa');
+    });
+    it('capital and small letters', () => {
+      expect(solution('AsDF')).toEqual('FDsA');
+    });
+    it('does not work with types other than string', () => {
+      expect(solution(1234)).toThrowError('toReverse is not a string');
+    });
+    it('does not work with types other than string', () => {
+      expect(solution(null)).toThrowError('toReverse is not a string');
     });
     // write at least 5 more tests ...
   });

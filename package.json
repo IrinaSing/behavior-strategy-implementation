@@ -27,4 +27,10 @@
     "jest-cli": "^26.6.3",
     "prettier": "^2.2.1"
   }
+
+  {
+    "scripts": {
+      "test": "jest"
+    }
+  }
 }
