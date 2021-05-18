@@ -20,11 +20,11 @@ const stub = (start = 0) => {
 //for-loop
 const timer1 = (start = 0) => {
   if (start < 0) {
-    return "Error: count down from a negative number";
+    throw new RangeError("start is less than 0");
   } else if (isNaN(start)) {
-    return "Error: not a number";
+    throw new TypeError("start is not a number");
   } else if (!Number.isInteger(start)) {
-    return "Error: not an integer";
+    throw new Error("start is not an integer");
   }
 
   const result = [];
@@ -38,11 +38,11 @@ const timer1 = (start = 0) => {
 //while-loop version
 const timer2 = (start = 0) => {
   if (start < 0) {
-    return "Error: count down from a negative number";
+    throw new RangeError("start is less than 0");
   } else if (isNaN(start)) {
-    return "Error: not a number";
+    throw new TypeError("start is not a number");
   } else if (!Number.isInteger(start)) {
-    return "Error: not an integer";
+    throw new Error("start is not an integer");
   }
 
   const result = [];
@@ -57,11 +57,11 @@ const timer2 = (start = 0) => {
 //count up from 0 to 'start' and reverse
 const timer3 = (start = 0) => {
   if (start < 0) {
-    return "Error: count down from a negative number";
+    throw new RangeError("start is less than 0");
   } else if (isNaN(start)) {
-    return "Error: not a number";
+    throw new TypeError("start is not a number");
   } else if (!Number.isInteger(start)) {
-    return "Error: not an integer";
+    throw new Error("start is not an integer");
   }
 
   const result = [];
@@ -73,10 +73,10 @@ const timer3 = (start = 0) => {
 };
 
 for (const solution of [
-  secretSolution,
+  //secretSolution,
   //timer1, //it works
   //timer2,  //it works
-  //timer3, //it works
+  timer3, //it works
 ]) {
   // the main test suite for the function
   describe(solution.name + ": counts down to 0", () => {
@@ -93,20 +93,23 @@ for (const solution of [
       expect(solution(4)).toEqual([4, 3, 2, 1, 0]);
     });
     it("should not accept Infinity", () => {
-      expect(solution(Infinity)).toThrowError("start is not an integer");
+      expect(() => solution(Infinity)).toThrowError("start is not an integer");
     });
     it("should not accept the parameter which is not a number", () => {
-      expect(solution("strings")).toThrow("start is not a number");
+      expect(() => solution("strings")).toThrow("start is not a number");
     });
     it("should not accept the negative number", () => {
-      expect(solution(-4)).toThrowError(new RangeError("start is less than 0"));
+      expect(() => solution(-4)).toThrowError(new RangeError("start is less than 0"));
     });
     it("should not work with decimals", () => {
-      expect(solution(2.5)).toThrowError(new Error("start is not an integer"));
+      expect(() => solution(2.5)).toThrowError(new Error("start is not an integer"));
     });
     // write at least 5 more tests ...
   });
 }
+
+
+
 
 // minified solution for testing your tests
 // prettier-ignore

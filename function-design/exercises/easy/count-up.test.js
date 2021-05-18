@@ -21,11 +21,11 @@ Strategy
 //while-loop (works)
 const timer1 = (max = 0) => {
   if (max < 0) {
-    return "Error: number should be greater than 0";
+    throw new RangeError("max is less than 0");
   } else if (typeof max !== "number") {
-    return "Error: not a number";
+    throw new TypeError("max is not a number");
   } else if (!Number.isInteger(max)) {
-    return "Error: not an integer";
+    throw new Error("max is not an integer");
   }
 
   const result = [];
@@ -41,11 +41,11 @@ const timer1 = (max = 0) => {
 //for-loop (works)
 const timer2 = (max = 0) => {
   if (max < 0) {
-    return "Error: number should be greater than 0";
+    throw new RangeError("max is less than 0");
   } else if (typeof max !== "number") {
-    return "Error: not a number";
+    throw new TypeError("max is not a number");
   } else if (!Number.isInteger(max)) {
-    return "Error: not an integer";
+    throw new Error("max is not an integer");
   }
 
   const result = [];
@@ -59,7 +59,7 @@ const timer2 = (max = 0) => {
 
 
 for (const solution of [
-  //secretSolution,
+  secretSolution,
   //stub,
   //timer1, //works
   timer2,
@@ -80,20 +80,19 @@ for (const solution of [
       expect(solution(4)).toEqual([0, 1, 2, 3, 4]);
     });
     it("should not accept Infinity", () => {
-      expect(solution(Infinity)).toEqual("Error: not an integer");
+      expect(() => solution(Infinity)).toThrowError("max is not an integer");
     });
     it("should not accept the parameter which is not a number", () => {
-      expect(solution("strings")).toEqual("Error: not a number");
+      expect(() => solution(null)).toThrow("max is not a number");
     });
-
     it("should not accept the parameter which is not a number", () => {
-      expect(solution(null)).toEqual("Error: not a number");
+      expect(() => solution("strings")).toThrow("max is not a number");
     });
     it("should not accept the negative number", () => {
-      expect(solution(-4)).toEqual("Error: number should be greater than 0");
+      expect(() => solution(-4)).toThrowError(new RangeError("max is less than 0"));
     });
     it("should not work with decimals", () => {
-      expect(solution(2.5)).toEqual("Error: not an integer");
+      expect(() => solution(2.5)).toThrowError(new Error("max is not an integer"));
     });
     // write at least 5 more tests ...
   });
