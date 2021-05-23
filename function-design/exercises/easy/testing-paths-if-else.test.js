@@ -6,7 +6,7 @@
  * @param {any} [val] value
  * @returns {boolean}
  */
-const stub = (val) => {
+const stub = (value) => {
   return boolean;
 };
 
@@ -25,11 +25,11 @@ for (const solution of [
     // the if path
     describe('solution can identify truthy values', () => {
       it('strings', () => {
-        const actual = solution(Boolean("word"));
+        const actual = solution("word");
         expect(actual).toEqual(true);
       });
       it('numbers', () => {
-        const actual = solution(Boolean(4));
+        const actual = solution(4);
         expect(actual).toEqual(true);
       });
       it('booleans', () => {
@@ -39,28 +39,28 @@ for (const solution of [
     // the else path
     describe('solution can identify falsy values', () => {
       it('strings', () => {
-        const actual = solution(Boolean(""));
+        const actual = solution("");
         expect(actual).toEqual(false);
       });
       it('numbers', () => {
-        const actual = solution(Boolean(0));
+        const actual = solution(0);
         expect(actual).toEqual(false);
       });
       it('booleans', () => {
-      expect(solution(false)).toEqual(false);
+        expect(solution(false)).toEqual(false);
       });
       it('undefined', () => {
-        const actual = solution(Boolean(undefined));
-        expect(actual).toEqual(false);
+        expect(solution(undefined)).toEqual(false);
       });
       it('null', () => {
-        const actual = solution(Boolean(null));
-        expect(actual).toEqual(false);
+        expect(solution(null)).toEqual(false);
     });
   });
+});
 }
 
 // minified solution for testing your tests
 
 // prettier-ignore
 function secretSolution(value) { return value ? true : false; }
+
