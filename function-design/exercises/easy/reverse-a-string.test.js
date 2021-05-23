@@ -15,7 +15,7 @@ Strategy 1
   1. split - to split string on many strings one symbol in each.
   2. reverse - to reverse order of strings.
   3. join - to join strings into new one.
-  Include control flow with conditios to throw error when the argument does not suit description.
+  Include control flow with conditions to throw error when the argument does not suit description.
 */
 
 const reverser = (toReverse = "") => {
@@ -27,7 +27,7 @@ const reverser = (toReverse = "") => {
 
 /*
 Strategy 2
-1.Include control flow with conditios to throw error when the argument does not suit description.
+1.Include control flow with conditions to throw error when the argument does not suit description.
 2. Create new variable to assign the result of reversion.
 3. The starting point of the loop will be (str.length - 1) which corresponds to the 
   last character of the string, "o"
@@ -49,7 +49,7 @@ const reverser2 = (toReverse = "") => {
 
 /*
 Strategy 3 recursion.
-1. 1.Include control flow with conditios to throw error when the argument does not suit description.
+1. 1.Include control flow with conditions to throw error when the argument does not suit description.
 2.For this solution, we will use two methods: the String.prototype.substr() method and the String.prototype.charAt() method.
 
 The substr() method returns the characters in a string beginning at the specified location through the specified number of characters.

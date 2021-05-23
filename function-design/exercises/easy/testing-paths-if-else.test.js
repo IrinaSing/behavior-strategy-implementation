@@ -3,10 +3,12 @@
 /**
  * returns true if the value is truthy
  * returns false if the value is falsy
- * @param {any} value
+ * @param {any} [val] value
  * @returns {boolean}
  */
-const stub = () => {};
+const stub = (val) => {
+  return boolean;
+};
 
 /*
 
@@ -23,34 +25,37 @@ for (const solution of [
     // the if path
     describe('solution can identify truthy values', () => {
       it('strings', () => {
-        const actual = solution(_);
+        const actual = solution(Boolean("word"));
         expect(actual).toEqual(true);
       });
       it('numbers', () => {
-        const actual = _;
+        const actual = solution(Boolean(4));
         expect(actual).toEqual(true);
       });
       it('booleans', () => {
-        expect(solution(_)).toEqual(true);
+        expect(solution(true)).toEqual(true);
       });
     });
     // the else path
     describe('solution can identify falsy values', () => {
       it('strings', () => {
-        _;
+        const actual = solution(Boolean(""));
+        expect(actual).toEqual(false);
       });
       it('numbers', () => {
-        _;
+        const actual = solution(Boolean(0));
+        expect(actual).toEqual(false);
       });
       it('booleans', () => {
-        _;
+      expect(solution(false)).toEqual(false);
       });
       it('undefined', () => {
-        _;
+        const actual = solution(Boolean(undefined));
+        expect(actual).toEqual(false);
       });
       it('null', () => {
-        _;
-      });
+        const actual = solution(Boolean(null));
+        expect(actual).toEqual(false);
     });
   });
 }
