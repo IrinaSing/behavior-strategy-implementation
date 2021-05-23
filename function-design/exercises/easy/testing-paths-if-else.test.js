@@ -11,12 +11,33 @@ const stub = (value) => {
 };
 
 /*
+Strategy
 
+1. Create control flow if-else to set up 2 paths.
+2. Cast value to boolean to check if it will return true or false.
+3. Return boolean depending on the results of argument casting.
 */
 
+const tester = (value) => {
+  const toBoolean = Boolean(value);
+  return toBoolean;
+};
+
+/*
+Strategy 2
+
+Use ternary operator
+*/
+
+const trueOrFalse = (value) => {
+  return value ? true : false;
+};
+
 for (const solution of [
-  secretSolution,
+  // secretSolution,
   // stub,
+  //tester, // it works
+  trueOrFalse // it works
 ]) {
   /* Execution Paths
       when testing conditionals, you need to be test all paths
